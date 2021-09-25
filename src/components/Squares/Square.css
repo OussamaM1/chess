@@ -1,0 +1,15 @@
+.squares {
+  display: grid;
+  place-content: center;
+  width: 69px;
+  height: 69px;
+}
+.black-squares {
+  background-color: #5d82b9;
+}
+.white-squares {
+  background-color: #d0dff4;
+}
+.squares .image {
+  width: 70px;
+}
