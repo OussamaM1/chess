@@ -9,4 +9,4 @@
 - [ ] Bishop moves
 - [ ] Knight moves
 - [ ] Queen moves
-- [ ] Queen moves
+- [ ] King moves
