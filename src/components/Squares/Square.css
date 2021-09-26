@@ -12,4 +12,14 @@
 }
 .squares .image {
   width: 70px;
+  height: 70px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70px;
+}
+.squares .image:hover {
+  cursor: grab;
+}
+.squares .image:active {
+  cursor: grabbing;
 }

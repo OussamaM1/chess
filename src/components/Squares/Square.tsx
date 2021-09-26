@@ -8,13 +8,23 @@ const Square = ({ coordinates, image }: Props) => {
   if (coordinates % 2 === 0)
     return (
       <div className="squares black-squares">
-        <img className="image" alt="" src={image} />
+        {image && (
+          <div
+            className="image"
+            style={{ backgroundImage: `url(${image})` }}
+          ></div>
+        )}
       </div>
     );
   else
     return (
       <div className="squares white-squares">
-        <img className="image" alt="" src={image} />
+        {image && (
+          <div
+            className="image"
+            style={{ backgroundImage: `url(${image})` }}
+          ></div>
+        )}
       </div>
     );
 };

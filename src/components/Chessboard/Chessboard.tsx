@@ -12,6 +12,7 @@ import blackKing from "../../assets/images/bk.png";
 import whiteKing from "../../assets/images/wk.png";
 import whiteQueen from "../../assets/images/wq.png";
 import blackQueen from "../../assets/images/bq.png";
+import React from "react";
 interface Piece {
   image: string;
   x: number;
@@ -135,9 +136,31 @@ const Chessboard = () => {
       y: 0,
     }
   );
-
+  let activePiece: HTMLElement | null = null;
+  const grabPiece = (e: React.MouseEvent) => {
+    const element = e.target as HTMLElement;
+    if (element.classList.contains("image")) {
+      const x = e.clientX - 40;
+      const y = e.clientY - 40;
+      element.style.position = "absolute";
+      element.style.left = `${x}px`;
+      element.style.top = `${y}px`;
+      activePiece = element;
+    }
+  };
+  const movePiece = (e: React.MouseEvent) => {
+    if (activePiece) {
+      const x = e.clientX - 40;
+      const y = e.clientY - 40;
+      activePiece.style.position = "absolute";
+      activePiece.style.left = `${x}px`;
+      activePiece.style.top = `${y}px`;
+    }
+  };
+  const dropPiece = (e: React.MouseEvent) => {
+    activePiece = null;
+  };
   let board = [];
-  let key = 0;
   //Setting up the board with pieces
   for (let j = verticalCoordinates.length - 1; j >= 0; j--) {
     for (let i = 0; i < horizontalCoordinates.length; i++) {
@@ -145,11 +168,21 @@ const Chessboard = () => {
       pieces.forEach((p) => {
         if (p.x === i && p.y === j) image = p.image;
       });
-      board.push(<Square key={key} image={image} coordinates={i + j} />);
-      key++;
+      board.push(
+        <Square key={`${i},${j}`} image={image} coordinates={i + j} />
+      );
     }
   }
-  return <div id="chessboard">{board}</div>;
+  return (
+    <div
+      onMouseMove={(e) => movePiece(e)}
+      onMouseDown={(e) => grabPiece(e)}
+      onMouseUp={(e) => dropPiece(e)}
+      id="chessboard"
+    >
+      {board}
+    </div>
+  );
 };
 
 export default Chessboard;
