@@ -12,3 +12,5 @@
 - [ ] Knight moves
 - [ ] Queen moves
 - [ ] King moves
+- [ ] Castling (long / short)
+- [ ] Promoting pawns
