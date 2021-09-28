@@ -14,3 +14,4 @@
 - [ ] King moves
 - [ ] Castling (long / short)
 - [ ] Promoting pawns
+- [ ] Preventing illegal moves
