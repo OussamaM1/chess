@@ -1,4 +1,4 @@
-# Chess game
+# ♟️ Chess game
 
 ![ChessBoard](https://i.ibb.co/tC16Wtn/chess.png)
 
